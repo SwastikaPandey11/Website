@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery</title>
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script src="jquery-ui/jquery-ui.js"></script>
+        <link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+        <style type="text/css">
+         
+         body {
+                
+                font-family: sans-serif;
+                padding:0;
+                margin:0;
+                
+            }
+        
+          #menu {
+                
+                width:100%;
+                background-color: #EEEEEE;
+                padding:5px;
+                height: 40px;
+                
+            }
+        
+          #name
+          {
+            float:left;
+            font-weight:bold;
+            font-size:125%;
+            padding: 3px 5px;
+          }
+          #button
+          {
+            float:left;
+            padding-top:10px;
+            padding-left:400px;
+            margin:0 auto;
+          }
+         .buttonn
+          {
+            float:left;
+            border:1px black solid;
+            height:23px;
+          }
+         
+          
+            #bb1 {
+                
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                
+            }
+            
+            #bb4 {
+                
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                border-right: 1px solid grey;
+                
+            }
+            .ac
+          {
+            background-color: aqua;
+          }
+          .high
+          {
+            background-color:grey;
+          }
+
+            .bodycontainer
+            {
+              margin:0 auto;
+            }
+            .boddy
+            {
+              float:left;
+              width:50%;
+              margin:0 auto;
+              
+            }
+            
+            #bbb1
+          {
+            height:650px;
+            width:370px;
+            padding:0;
+            float:left;
+            
+            
+          }
+          #bbb2
+          {
+            height:650px;
+            width:370px;
+            float:left;
+            padding:0;
+            
+          }
+          
+          
+          #bbb3
+          {
+            height:650px;
+            width:370px;
+            float:left;
+            padding:0;
+            
+          }
+          
+          #bbb4
+          {
+            height:650px;
+            width:375px;
+            float:left;
+            padding:0;
+            
+            
+          }
+        
+          .hidden
+          {
+            display:none;
+          }
+          
+            
+            
+        </style>
+        </head>
+        <body>
+           <div id="menu">
+                <div id="name">CodePlayer</div>
+                <div id="button">
+                
+                  <div class="buttonn ac" id="bb1">HTML</div>
+                  
+                  <div class="buttonn" id="bb2">CSS</div>
+                  
+                  <div class="buttonn" id="bb3">JavaScript</div>
+                  
+                  <div class="buttonn ac" id="bb4">Output</div>
+              
+                </div>
+           </div>
+            
+              <div class="bodycontainer">
+                <textarea class="boddy" id="bbb1" ><p id="pp">Hello World</p></textarea></div> 
+                <textarea  class="boddy hidden"id="bbb2" >p {
+                                                       color:green
+                                                       }
+                </textarea></div> 
+                <textarea class="boddy hidden" id="bbb3" >document.getElementById("pp").innerHTML="HELLO"</textarea></div> 
+                <iframe class="boddy" id="bbb4" ></iframe></div> 
+                
+                </div>
+
+           </div>
+           <script type="text/javascript">
+            
+            function update()
+            {
+              var h=$("#bbb1").val();
+              var c=$("#bbb2").val();
+              var j=$("#bbb3").val();
+              var o=$("#bbb4").val();
+              var p="<html><head><style type='text/css'>"+c+"</style></head><body>"+h+"</body></html>";
+              $("iframe").contents().find("html").html(p);
+              document.getElementById("bbb4").contentWindow.eval(j);
+              
+            }
+             
+             $(".buttonn").hover(function() {
+                
+                $(this).addClass("high");
+                
+            }, function() {
+                
+                $(this).removeClass("high");
+                
+            });
+
+            
+            $("textarea").css("resize","none");
+            $(".buttonn").click( function() {
+              $(this).toggleClass("ac");
+              var f="#b"+$(this).attr("id");
+              $(f).toggleClass("hidden");
+            })
+            update();
+            $("textarea").on('change keyup paste',function() {
+              update();
+            })
+            </script>
+        </body>
+    
+</html>
